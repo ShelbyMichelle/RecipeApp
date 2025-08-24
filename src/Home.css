@@ -1,0 +1,357 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Updated background to match the cream/off-white color from the image */
+  background-color: #f9c9d7;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  background-color: white;
+  padding: 1rem 0;
+  /* Adjusted shadow to be more subtle like in the image */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* Increased border radius to match the more rounded design */
+  border-radius: 0 0 2.5rem 2.5rem;
+  margin: 1rem 2rem 0 2rem;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.logo h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #666;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+
+
+/* Hero Section */
+.hero {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-title {
+  /* Adjusted font size to better match the image proportions */
+  font-size: 3.2rem;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+
+.hero-description {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.explore-btn {
+  background-color: white;
+  color: #000;
+  border: none;
+  padding: 1rem 2rem;
+  /* Increased border radius for consistency */
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.explore-btn:hover {
+  background-color: #f1356d;
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav {
+    gap: 1rem;
+  }
+
+  .hero-content,
+  .contest-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .recipes-grid,
+  .cuisine-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header h2,
+  .contest-text h2 {
+    font-size: 2rem;
+  }
+}
+
+
+/*SERVICES*/
+.our-services {
+  padding: 60px 20px;
+  font-family: "Arial", sans-serif;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.services-image {
+  display: flex;           /* centers the image inside */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;           /* space around the image */
+  border-radius: 10px;     /* rounded corners */
+}
+
+.services-image img {
+  max-width: 500px;        /* limits the width to 300px */
+  width: 100%;             /* still responsive under 300px */
+  height: 400px;      /* make it shorter */
+  object-fit: cover;  /* crops so it doesn't stretch */
+  border-radius: 8px;      /* slight rounding of image edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow */
+}
+
+.services-content {
+  flex: 1;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.service-icon svg {
+  color: #495057;
+  transition: color 0.3s ease;
+}
+
+.service-item:hover .service-icon {
+  background-color: #f1356d;
+  border-color: #f1356d;
+}
+
+.service-item:hover .service-icon svg {
+  color: white;
+}
+
+.service-text {
+  flex: 1;
+}
+
+.service-text h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.service-text p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    height: 200px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .service-item {
+    padding: 15px;
+  }
+
+  .service-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .service-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/*YOUR RECIPES*/
+/* Container to match main page width */
+.latest-recipes .container {
+  max-width: 1200px; /* same width as your hero section */
+  margin: 0 auto;     /* center horizontally */
+  padding: 0 20px;   /* small padding on sides */
+}
+
+/* Recipes grid */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 25px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 992px) {
+  .recipes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .recipes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Recipe card styling */
+.recipe-card {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.recipe-card h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.recipe-card p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.recipe-btn {
+  display: inline-block;
+  background-color: #f9c9d7;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+}
+
+.recipe-btn:hover {
+  background-color: #f1356d;
+}

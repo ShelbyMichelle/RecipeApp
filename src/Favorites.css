@@ -1,0 +1,23 @@
+.corner {
+  position: absolute;
+  width: 120px;  /* adjust */
+  pointer-events: none; /* prevent blocking clicks */
+}
+
+.top-left {
+  position: absolute;
+  top: 130px;     /* increased from 10px → pushes it further down */
+  left: 10px;
+  width: 300px;  /* bigger (was 120px before) */
+  height: auto;  /* keeps aspect ratio */
+}
+
+.bottom-right {
+  position: fixed;   /* instead of absolute */
+  bottom: 0;         /* stick to very bottom of the screen */
+  right: 0;          /* stick to right edge */
+  width: 250px;      /* make it bigger */
+  height: auto;      /* keep aspect ratio */
+  z-index: -1;       /* behind your content */
+  opacity: 0.9;      /* optional */
+}

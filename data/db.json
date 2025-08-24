@@ -1,0 +1,94 @@
+{
+  "shopping": [
+    {
+      "list": "banas, apples",
+      "id": "d997"
+    },
+    {
+      "id": "fcd9",
+      "list": "gfbbgf"
+    },
+    {
+      "id": "9b42",
+      "list": " nbbb"
+    },
+    {
+      "id": "6237",
+      "list": " nbbb"
+    },
+    {
+      "id": "dac6",
+      "list": "cooking oil, butter and vegetables"
+    },
+    {
+      "id": "82bf",
+      "list": "nothing"
+    },
+    {
+      "id": "6ec8",
+      "list": "hfdsjkf"
+    },
+    {
+      "id": "68f3",
+      "list": "neww"
+    }
+  ],
+  "recipes": [
+    {
+      "title": "Mushroom pasta",
+      "time": "25 min",
+      "body": "A rich creamy pasta with fresh mushrooms",
+      "type": "pasta",
+      "id": "1",
+        "ingredients": [
+    "200g spaghetti",
+    "2 tomatoes",
+    "1 tbsp olive oil",
+    "Salt and pepper"
+  ],
+      "favorite": true
+    },
+    {
+      "title": "Honey garlic chicken",
+      "time": "35 min",
+      "body": "Tender chicken tighs with sweet honey garlic sauce",
+      "type": "chicken",
+      "id": "2",
+        "ingredients": [
+    "200g chicken",
+    "2 tomatoes",
+    "1 tbsp olive oil",
+    "Salt and pepper"
+  ],
+      "favorite": false
+    },
+    {
+      "id": "ec6f",
+      "title": "White cake",
+      "time": "20mins",
+      "body": "jdkshfhrk\nshfkhfk",
+      "type": "cake",
+        "ingredients": [
+    "200g flour",
+    "200ml vanila",
+    "500g white sugar",
+    "1 tbsp salt"
+  ],
+      "favorite": true
+    },
+    {
+      "id": "bf26",
+      "title": "Mushed potatoes",
+      "time": "15 mins",
+      "body": "jhfjd\nsbfsfjhs",
+      "type": "potatoes",
+        "ingredients": [
+    "200g potatoes",
+    "2 tomatoes",
+    "1 tbsp olive oil",
+    "Salt and pepper"
+  ],
+      "favorite": true
+    }
+  ]
+}

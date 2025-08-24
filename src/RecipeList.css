@@ -1,0 +1,222 @@
+/* Recipe List Styles */
+.recipe-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.corner {
+  position: absolute;
+  width: 120px;  /* adjust */
+  pointer-events: none; /* prevent blocking clicks */
+}
+
+.top-left {
+  position: absolute;
+  top: 130px;     /* increased from 10px → pushes it further down */
+  left: 10px;
+  width: 300px;  /* bigger (was 120px before) */
+  height: auto;  /* keeps aspect ratio */
+}
+
+.bottom-right {
+  position: fixed;   /* sticks to the viewport, not just the container */
+  bottom: 0;         /* very bottom of the page */
+  right: 0;          /* very right corner */
+  width: 300px;      /* bigger size (adjust as needed) */
+  height: auto;      /* keeps aspect ratio */
+  z-index: -1;       /* ensures it stays behind content */
+}
+
+.recipe-list h2 {
+  color: #f1356d;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(241, 53, 109, 0.1);
+}
+
+.recipe-preview {
+  background: linear-gradient(135deg, #ffffff 0%, #fef7f9 100%);
+  border: 2px solid #f9c9d7;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(249, 201, 215, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.recipe-preview::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(249, 201, 215, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.recipe-preview:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(249, 201, 215, 0.4);
+  border-color: #f1356d;
+}
+
+.recipe-preview:hover::before {
+  left: 100%;
+}
+
+.recipe-preview h2 {
+  color: #f1356d;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  text-align: left;
+}
+
+.recipe-preview p {
+  color: #666;
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+
+/* Button Container */
+.recipe-preview > div:last-child,
+.recipe-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.recipe-preview button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Favorite Button Styles */
+.recipe-preview button:first-of-type {
+  background: linear-gradient(135deg, #f9c9d7 0%, #f1356d 100%);
+  color: white;
+  border: 2px solid transparent;
+}
+
+.recipe-preview button:first-of-type:hover {
+  background: linear-gradient(135deg, #f1356d 0%, #d12d5e 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(241, 53, 109, 0.3);
+}
+
+.recipe-preview button:first-of-type:active {
+  transform: translateY(0);
+}
+
+/* Delete Button Styles */
+.recipe-preview button:last-of-type {
+  background: #fff;
+  color: #f1356d;
+  border: 2px solid #f9c9d7;
+}
+
+.recipe-preview button:last-of-type:hover {
+  background: #f1356d;
+  color: white;
+  border-color: #f1356d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(241, 53, 109, 0.2);
+}
+
+/* Button Container for Side-by-Side Layout */
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button-container button {
+  flex: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .recipe-list {
+    padding: 1rem;
+  }
+
+  .recipe-list h2 {
+    font-size: 2rem;
+  }
+
+  .recipe-preview {
+    padding: 1rem;
+  }
+
+  .button-container {
+    flex-direction: column;
+  }
+
+  .button-container button {
+    flex: none;
+  }
+}
+
+/* Loading Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recipe-preview {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Empty State */
+.recipe-list:empty::after {
+  content: "No recipes found. Add some delicious recipes to get started!";
+  display: block;
+  text-align: center;
+  color: #f1356d;
+  font-style: italic;
+  padding: 2rem;
+  background: #fef7f9;
+  border: 2px dashed #f9c9d7;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+/* Star Animation for Favorites */
+.recipe-preview button:first-of-type:hover {
+  animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1) translateY(-2px);
+  }
+  50% {
+    transform: scale(1.05) translateY(-2px);
+  }
+  100% {
+    transform: scale(1) translateY(-2px);
+  }
+}
