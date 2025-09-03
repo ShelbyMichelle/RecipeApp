@@ -97,3 +97,20 @@
 .shopping > button:hover {
   background: #0056b3;
 }
+.back-home {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.back-home button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ff4b4b;
+  color: white;
+  cursor: pointer;
+}
+
+.back-home button:hover {
+  background-color: #ff4b4b;
+}
