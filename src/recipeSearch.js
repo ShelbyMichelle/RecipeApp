@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getRandomRecipes, searchRecipes } from './spoonacularService';
+import { Link } from 'react-router-dom';
 
 const RecipeSearch = () => {
   const [recipes, setRecipes] = useState([]);
@@ -8,7 +9,6 @@ const RecipeSearch = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
 
-  // Load random recipes when component mounts
   useEffect(() => {
     loadRandomRecipes();
   }, []);
@@ -17,7 +17,7 @@ const RecipeSearch = () => {
     setLoading(true);
     setError('');
     try {
-      const data = await getRandomRecipes(20); // Get 20 random recipes
+      const data = await getRandomRecipes(20);
       setRecipes(data.recipes);
     } catch (err) {
       setError('Failed to load recipes. Please try again.');
@@ -30,7 +30,7 @@ const RecipeSearch = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!searchQuery.trim()) {
-      loadRandomRecipes(); // If empty search, load random recipes
+      loadRandomRecipes();
       return;
     }
 
@@ -57,7 +57,7 @@ const RecipeSearch = () => {
     return (
       <div style={{ textAlign: 'center', padding: '50px' }}>
         <h2>Loading delicious recipes...</h2>
-        <div> Please wait...</div>
+        <div>Please wait...</div>
       </div>
     );
   }
@@ -144,6 +144,30 @@ const RecipeSearch = () => {
         )}
       </div>
 
+      {/* No Results Message */}
+      {recipes.length === 0 && !loading && (
+        <div style={{ textAlign: 'center', padding: '50px', color: '#666' }}>
+          <h3>No recipes found</h3>
+          <p>Try searching for something else or browse our random recipes!</p>
+          {searchQuery && (
+            <button 
+              onClick={clearSearch}
+              style={{
+                marginTop: '20px',
+                padding: '10px 20px',
+                backgroundColor: '#f1356d',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer'
+              }}
+            >
+              Show Random Recipes
+            </button>
+          )}
+        </div>
+      )}
+
       {/* Recipes Grid */}
       <div style={{ 
         display: 'grid', 
@@ -160,12 +184,11 @@ const RecipeSearch = () => {
               overflow: 'hidden',
               backgroundColor: 'white',
               boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-              transition: 'transform 0.2s, box-shadow 0.2s',
-              cursor: 'pointer'
+              transition: 'transform 0.2s, box-shadow 0.2s'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.15)';
+              e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0)';
@@ -200,71 +223,35 @@ const RecipeSearch = () => {
                 )}
               </div>
 
-              {recipe.dishTypes && recipe.dishTypes.length > 0 && (
-                <div style={{ marginBottom: '12px' }}>
-                  {recipe.dishTypes.slice(0, 2).map((type, index) => (
-                    <span 
-                      key={index}
-                      style={{
-                        display: 'inline-block',
-                        backgroundColor: '#e9ecef',
-                        color: '#495057',
-                        fontSize: '12px',
-                        padding: '4px 8px',
-                        borderRadius: '12px',
-                        marginRight: '6px',
-                        textTransform: 'capitalize'
-                      }}
-                    >
-                      {type}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              <button 
-                onClick={() => window.open(recipe.sourceUrl || `https://spoonacular.com/recipes/${recipe.title.replace(/\s+/g, '-').toLowerCase()}-${recipe.id}`, '_blank')}
-                style={{
-                  width: '100%',
-                  padding: '10px',
-                  backgroundColor: '#28a745',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '6px',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                  fontWeight: 'bold'
-                }}
-              >
-                View Recipe
-              </button>
+              {/* Single Link with button - removed duplicate */}
+              <Link to={`/recipes/${recipe.id}`} style={{ textDecoration: 'none' }}>
+                <button 
+                  style={{
+                    width: '100%',
+                    padding: '10px',
+                    backgroundColor: '#f1356d',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    transition: 'background-color 0.2s'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = '#f1356d';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = '#f1356d';
+                  }}
+                >
+                  View Recipe
+                </button>
+              </Link>
             </div>
           </div>
         ))}
       </div>
-
-      {/* No Results */}
-      {recipes.length === 0 && !loading && !error && (
-        <div style={{ textAlign: 'center', padding: '50px', color: '#666' }}>
-          <h3>No recipes found</h3>
-          <p>Try searching with different keywords or browse our random selection.</p>
-          <button 
-            onClick={loadRandomRecipes}
-            style={{
-              padding: '12px 24px',
-              backgroundColor: '#007bff',
-              color: 'white',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              fontSize: '16px',
-              marginTop: '10px'
-            }}
-          >
-            Show Random Recipes
-          </button>
-        </div>
-      )}
     </div>
   );
 };

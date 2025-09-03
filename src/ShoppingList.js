@@ -1,6 +1,7 @@
 import './ShoppingList.css'
 import shopping from './shopping2.jpg'
 import shop from './shopping.jpg'
+import {Link} from 'react-router-dom';
 
 const ShoppingList = ({ list = [], removeItem, clearList }) => {
   return (
@@ -20,6 +21,11 @@ const ShoppingList = ({ list = [], removeItem, clearList }) => {
         </ul>
       )}
       {list.length > 0 && <button onClick={clearList}>Clear All</button>}
+            <div className="back-home">
+        <Link to="/home">
+          <button>Back to Home</button>
+        </Link>
+      </div>
     </div>
   );
 };

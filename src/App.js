@@ -27,31 +27,30 @@ const AppContent = () => {
   const location = useLocation();
   const [recipeList, setRecipeList] = useState([]);
 
-      // Add ingredients to shopping list
-    const addToShoppingList = (ingredients) => {
-      setShoppingList(prev => {
-        // Merge duplicates
-        const newList = [...prev];
-        ingredients.forEach(item => {
-          if (!newList.includes(item)) {
-            newList.push(item);
-          }
-        });
-        return newList;
+  // Add ingredients to shopping list
+  const addToShoppingList = (ingredients) => {
+    setShoppingList(prev => {
+      // Merge duplicates
+      const newList = [...prev];
+      ingredients.forEach(item => {
+        if (!newList.includes(item)) {
+          newList.push(item);
+        }
       });
-    };
+      return newList;
+    });
+  };
 
-    // Remove one ingredient
-    const removeFromShoppingList = (itemToRemove) => {
-      setShoppingList(prev => prev.filter(item => item !== itemToRemove));
-    };
+  // Remove one ingredient
+  const removeFromShoppingList = (itemToRemove) => {
+    setShoppingList(prev => prev.filter(item => item !== itemToRemove));
+  };
 
-    // Clear all ingredients
-    const clearShoppingList = () => setShoppingList([]);
-
+  // Clear all ingredients
+  const clearShoppingList = () => setShoppingList([]);
 
   useEffect(() => {
-        // Listen for Firebase auth state changes
+    // Listen for Firebase auth state changes
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
       if (firebaseUser) {
         // User is signed in
@@ -71,6 +70,7 @@ const AppContent = () => {
       }
       setAuthLoading(false); // Auth check is complete
     });
+
     const getRecipeList = async () => {
       try {
         const recipeCollectionRef = collection(db, "recipes");
@@ -89,39 +89,47 @@ const AppContent = () => {
     return () => unsubscribe();
   }, []);
 
-  const hideNavbarRoutes = ['/','/signup', '/login'];
+  const hideNavbarRoutes = ['/', '/signup', '/login'];
 
-    if (authLoading) {
+  if (authLoading) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
         <div>Loading...</div>
       </div>
     );
   }
+
   return (
- <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser }}>
       <div className="App">
         {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
         <div className="content">
           <Switch>
             <Route exact path="/">
               <Landing />
-            </Route> 
-            <Route exact path="/home" >
+            </Route>
+            <Route path="/search">
+              <RecipeSearch />
+            </Route>
+            <Route exact path="/home">
               <Home />
             </Route>
-            <Route path="/recipes" >
-              <RecipeSearch/>
+            {/* IMPORTANT: Put the more specific route (/recipes/:id) BEFORE the general route (/recipes) */}
+            <Route path="/recipes/:id">
+              <RecipeDetails />
+            </Route>
+            <Route path="/recipes">
+              <RecipeSearch />
             </Route>
             <Route path="/create">
               <Create />
             </Route>
             <Route path="/shopping">
-                <ShoppingList 
-                  list={shoppingList} 
-                  removeItem={removeFromShoppingList} 
-                  clearList={clearShoppingList} 
-                />
+              <ShoppingList 
+                list={shoppingList} 
+                removeItem={removeFromShoppingList} 
+                clearList={clearShoppingList} 
+              />
             </Route>
             <Route path="/favorite">
               <Favorites />
@@ -134,9 +142,6 @@ const AppContent = () => {
             </Route>
             <Route path="/login">
               <Login />
-            </Route>
-            <Route path="/recipes/:id">
-              <RecipeDetails />
             </Route>
             <Route path="*">
               <NotFound />
