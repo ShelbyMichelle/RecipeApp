@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/RecipeApp/static/css/main.509f606b.css",
+    "main.js": "/RecipeApp/static/js/main.eeafee7a.js",
+    "static/media/chef1.jpg": "/RecipeApp/static/media/chef1.4232af364e8af86032a2.jpg",
+    "static/media/pic1.jpg": "/RecipeApp/static/media/pic1.4c547b03b0edfa9b1dbd.jpg",
+    "static/media/shopping2.jpg": "/RecipeApp/static/media/shopping2.cde6a72e63bff34e0062.jpg",
+    "static/media/pic2.jpg": "/RecipeApp/static/media/pic2.3c6bb35412cc1068a040.jpg",
+    "static/media/chef.jpg": "/RecipeApp/static/media/chef.23e14ee7422f149a8a6e.jpg",
+    "static/media/services.jpg": "/RecipeApp/static/media/services.ddecce56d2bce747cc6a.jpg",
+    "static/media/fav1.jpg": "/RecipeApp/static/media/fav1.073fa61c01202e5f9745.jpg",
+    "static/media/shopping.jpg": "/RecipeApp/static/media/shopping.36d6a3ca7da952a310fe.jpg",
+    "static/media/fav2.jpg": "/RecipeApp/static/media/fav2.27f93c93f219cad06e8f.jpg",
+    "static/media/bottom.jpg": "/RecipeApp/static/media/bottom.4087e86c1895c292b154.jpg",
+    "static/media/seven.jpg": "/RecipeApp/static/media/seven.52abee8ee33bbbd3c9f0.jpg",
+    "index.html": "/RecipeApp/index.html",
+    "main.509f606b.css.map": "/RecipeApp/static/css/main.509f606b.css.map",
+    "main.eeafee7a.js.map": "/RecipeApp/static/js/main.eeafee7a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.509f606b.css",
+    "static/js/main.eeafee7a.js"
+  ]
+}
