@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/RecipeApp/static/css/main.509f606b.css",
-    "main.js": "/RecipeApp/static/js/main.eeafee7a.js",
+    "main.js": "/RecipeApp/static/js/main.3ed01f79.js",
     "static/media/chef1.jpg": "/RecipeApp/static/media/chef1.4232af364e8af86032a2.jpg",
     "static/media/pic1.jpg": "/RecipeApp/static/media/pic1.4c547b03b0edfa9b1dbd.jpg",
     "static/media/shopping2.jpg": "/RecipeApp/static/media/shopping2.cde6a72e63bff34e0062.jpg",
@@ -15,10 +15,10 @@
     "static/media/seven.jpg": "/RecipeApp/static/media/seven.52abee8ee33bbbd3c9f0.jpg",
     "index.html": "/RecipeApp/index.html",
     "main.509f606b.css.map": "/RecipeApp/static/css/main.509f606b.css.map",
-    "main.eeafee7a.js.map": "/RecipeApp/static/js/main.eeafee7a.js.map"
+    "main.3ed01f79.js.map": "/RecipeApp/static/js/main.3ed01f79.js.map"
   },
   "entrypoints": [
     "static/css/main.509f606b.css",
-    "static/js/main.eeafee7a.js"
+    "static/js/main.3ed01f79.js"
   ]
 }
