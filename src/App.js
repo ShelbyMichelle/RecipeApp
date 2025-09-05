@@ -155,7 +155,7 @@ const AppContent = () => {
 
 const App = () => {
   return (
-    <BrowserRouter basename="/RecipeApp">
+    <BrowserRouter>
       <AppContent />
     </BrowserRouter>
   );
