@@ -1,5 +1,5 @@
 import { auth, googleProvider } from './firebase';
-import { createUserWithEmailAndPassword, updateProfile, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Eye, EyeOff, Mail, Lock, User, ArrowLeft } from 'lucide-react';
 import { Link, useHistory } from 'react-router-dom';
@@ -192,13 +192,7 @@ const SignupPage = () => {
       console.error(err);
     }
   };
-    const logout = async()=>{
-    try{
-      await signInWithPopup(auth)
-    }catch(err){
-      console.error(err)
-    }
-  };
+    
   return (
     <div className="signup">
       <div className="signup-card">
