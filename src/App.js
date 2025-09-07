@@ -25,7 +25,7 @@ const AppContent = () => {
   const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
   const location = useLocation();
-  const [recipeList, setRecipeList] = useState([]);
+  const [, setRecipeList] = useState([]);
 
   // Add ingredients to shopping list
   const addToShoppingList = (ingredients) => {

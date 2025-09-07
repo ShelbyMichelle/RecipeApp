@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import './Create.css';
-import { Link } from "lucide-react";
 import { db } from './firebase';  // import the Firestore instance
 import { collection, addDoc } from "firebase/firestore";
 
@@ -10,7 +9,6 @@ const Create = () => {
   const [title, setTitle] = useState('');
   const [time, setTime] = useState('');
   const [body, setBody] = useState('');
-  const [type, setType] = useState('pasta');
   const [isPending, setIsPending] = useState(false);
   const history = useHistory();
 
